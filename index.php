@@ -52,12 +52,12 @@
         $error = true;
       }
 
-      $userScore = $userScore2;
-      $userTotal = $userTotal2;
+      $userScore2 = $userScore;
+      $userTotal2 = $userTotal;
 
     } else {
-      $userScore = 0;
-      $userTotal = 0;
+      $userScore2 = 0;
+      $userTotal2 = 0;
     }
     if($placeHolder == 1) {
       $operation = '+';
