@@ -1,5 +1,5 @@
 <?php
 session_start();
 $_SESSION['login'] = NULL;
-header("Location: login.php");
+header("Location: index.php");
 ?>
