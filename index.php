@@ -37,7 +37,7 @@
         $userTotal2 = $_POST['userTotal'] + 1;
 
       if (is_numeric($_POST['answer'])) {
-        if($_POST['answer'] == $answer) {
+        if($_POST['answer'] == $correctAnswer) {
           $correctAnswer = 1;
           $userScore++;
         } else {
@@ -103,7 +103,7 @@
       <?php
       if($correctAnswer == 1) {
         echo '<span style="color: green; font-weight: bold;">Thats correct!</span>';
-      } else if($correct == 2) {
+      } else if($correctAnswer == 2) {
         echo '<span style="color: red; font-weight: bold;">Thats incorrect!, '
         . $numberOne . ' ' . $operationPeformed . ' ' . $numberTwo . ' = ' . $correctAnswer . '.</span>';
       } else if ($error) {
