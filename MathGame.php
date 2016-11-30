@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container">
-  <form action="index.php" method="post" role="form" class="form-horizontal">
+  <form action="mathgame.php" method="post" role="form" class="form-horizontal">
   <div class="row">
     <div class="col-md-4">
       <h1>Math Game</h1>
@@ -27,7 +27,7 @@
       $numTwo = rand(0, 20);
 
       if(empty($_SESSION['login'])) {
-      	header('Location: login.php');
+      	header('Location: index.php');
       }
 
       if($_SERVER['REQUEST_METHOD'] == 'POST') {
