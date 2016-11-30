@@ -19,7 +19,7 @@ if(isset($_SESSION['login']) && $_SESSION['login'] == 'yes') {
     </div>
     <div class="col-md-1"></div>
     </div>
-    <form action="authenticate.php" method="post" role="form" class="form-horizontal">
+    <form action="checker.php" method="post" role="form" class="form-horizontal">
 		<div class="form-group">
     	<div class="col-md-4">Enter your email: </div>
     	<div class="col-md-3">
