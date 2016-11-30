@@ -98,7 +98,7 @@
   </div>
   <div class="row">
   <div class="col-md-3">
-    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
   </div>
   </div>
   </form>
@@ -129,7 +129,7 @@
       ?>
     </div>
   </div>
-  <div class="col-sm-4"><a href="logout.php" class="btn btn-default btn-sm">Logout</a></div>
+  <div class="col-sm-4"><a href="logout.php" class="btn btn-info">Logout</a></div>
   </div>
   </div>
   </div>

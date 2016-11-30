@@ -36,7 +36,7 @@ if(isset($_SESSION['login']) && $_SESSION['login'] == 'yes') {
       </div>
     <div class="row">
       <div class="col-md-3">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-info">Login</button>
       </div>
     </div>
     </form>
