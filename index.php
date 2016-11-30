@@ -39,7 +39,7 @@
       if (is_numeric($_POST['answer'])) {
         if($_POST['answer'] == $correctAnswer) {
           $correctAnswer = 1;
-          $userScore++;
+          $userScore2++;
         } else {
           $correctAnswer = 2;
         }
