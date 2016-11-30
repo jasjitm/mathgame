@@ -21,10 +21,6 @@
       $userTotal = NULL;
       $error = NULL;
 
-      $placeHolder = rand(0, 1);
-      $firstNumber = rand(0, 20);
-      $secondNumber = rand(0, 20);
-
       if(empty($_SESSION['login'])) {
       	header('Location: login.php');
       }
@@ -36,8 +32,8 @@
         $userScore2 = $_POST['userScore'];
         $userTotal2 = $_POST['userTotal'] + 1;
 
-      if (is_numeric($_POST['answer'])) {
-        if($_POST['answer'] == $correctAnswer) {
+      if (is_numeric($_POST['correctAnswer'])) {
+        if($_POST['correctAnswer'] == $correctAnswer) {
           $correctAnswer = 1;
           $userScore2++;
         } else {
@@ -52,13 +48,17 @@
         $error = true;
       }
 
-      $userScore2 = $userScore;
-      $userTotal2 = $userTotal;
+      $userScore = $userScore2;
+      $userTotal = $userTotal2;
 
     } else {
-      $userScore2 = 0;
-      $userTotal2 = 0;
+      $userScore = 0;
+      $userTotal = 0;
     }
+
+    $placeHolder = rand(0, 1);
+    $firstNumber = rand(0, 20);
+    $secondNumber = rand(0, 20);
     if($placeHolder == 1) {
       $operation = '+';
     }
