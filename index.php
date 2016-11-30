@@ -39,6 +39,12 @@
 
         if (is_numeric($_POST['answer'])) {
 
+          if($lastOperation == '+') {
+            $answer = $lastNumOne + $lastNumTwo;
+          } else {
+            $answer = $lastNumOne - $lastNumTwo;
+          }
+
           if($_POST['answer'] == $answer) {
             $correctAnswer = 1;
             $lastcurrentScore++;
@@ -63,12 +69,6 @@
       }
       else {
         $operation = '-';
-      }
-
-      if($lastOperation == '+') {
-        $answer = $lastNumOne + $lastNumTwo;
-      } else {
-        $answer = $lastNumOne - $lastNumTwo;
       }
       ?>
   <div class="row">
