@@ -16,14 +16,15 @@
       ini_set('display_startup_errors', 1);
       error_reporting(E_ALL);
       session_start();
+
+      if(empty($_SESSION['login'])) {
+        header('Location: login.php');
+      }
+
       $correctAnswer = NULL;
       $userScore = NULL;
       $userTotal = NULL;
       $error = NULL;
-
-      if(empty($_SESSION['login'])) {
-      	header('Location: login.php');
-      }
 
       if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $numberOne = $_POST['firstNumber'];
@@ -33,20 +34,23 @@
         $userTotal2 = $_POST['userTotal'] + 1;
 
       if (is_numeric($_POST['correctAnswer'])) {
+
         if($_POST['correctAnswer'] == $correctAnswer) {
           $correctAnswer = 1;
           $userScore2++;
         } else {
           $correctAnswer = 2;
         }
+
+      } else {
+        $error = true;
+      }
+
         if($operationPeformed == '+') {
           $correctAnswer = $numberOne + $numberTwo;
         } else {
           $correctAnswer = $numberOne - $numberTwo;
         }
-      } else {
-        $error = true;
-      }
 
       $userScore = $userScore2;
       $userTotal = $userTotal2;
@@ -66,7 +70,6 @@
       $operation = '-';
     }
     ?>
-
     </div>
     <div class="col-sm-4"><a href="logout.php" class="btn btn-default btn-sm">Logout</a></div>
     </div>
@@ -78,10 +81,10 @@
     </div>
       <input type="hidden" name="firstNumber"
       value="<?php echo $firstNumber; ?>">
-      <input type="hidden" name="secondNumber"
-      value="<?php echo $secondNumber; ?>">
       <input type="hidden" name="operation"
       value="<?php echo $operation; ?>">
+      <input type="hidden" name="secondNumber"
+      value="<?php echo $secondNumber; ?>">
       <input type="hidden" name="userScore"
       value="<?php echo $userScore; ?>">
       <input type="hidden" name="userTotal"
