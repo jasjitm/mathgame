@@ -12,7 +12,6 @@
     <div class="col-md-4">
       <h1>Math Game</h1>
       <?php
-
       ini_set('display_errors', 1);
       ini_set('display_startup_errors', 1);
       error_reporting(E_ALL);
@@ -40,12 +39,6 @@
 
         if (is_numeric($_POST['answer'])) {
 
-          if($lastOperation == '+') {
-            $answer = $lastNumOne + $lastNumTwo;
-          } else {
-            $answer = $lastNumOne - $lastNumTwo;
-          }
-
           if($_POST['answer'] == $answer) {
             $correctAnswer = 1;
             $lastcurrentScore++;
@@ -72,10 +65,12 @@
         $operation = '-';
       }
 
+      if($lastOperation == '+') {
+        $answer = $lastNumOne + $lastNumTwo;
+      } else {
+        $answer = $lastNumOne - $lastNumTwo;
+      }
       ?>
-    </div>
-    <div class="col-sm-4"><a href="logout.php" class="btn btn-default btn-sm">Logout</a></div>
-    </div>
   <div class="row">
     <div class="col-md-3"></div>
     <label class="col-sm-2 col-sm-offset-3">
@@ -113,7 +108,8 @@
       if($correctAnswer == 1) {
         echo '<span style="color: green; font-weight: bold;">Thats right!</span>';
       } else if($correctAnswer == 2) {
-        echo '<span style="color: red; font-weight: bold;">Thats wrong!, ' . $lastNumOne . ' ' . $lastOperation . ' ' . $lastNumTwo . ' is ' . $answer . '.</span>';
+        echo '<span style="color: red; font-weight: bold;">Thats wrong!, '
+         . $lastNumOne . ' ' . $lastOperation . ' ' . $lastNumTwo . ' is ' . $answer . '.</span>';
       } else if ($error) {
         echo '<span style="color: red; font-weight: bold;">Please enter a number value.</span>';
       }
@@ -126,12 +122,15 @@
     <div class="col-md-4">
       <?php
       if ($userTotal !== 0) {
-        echo 'currentScore: ' . $currentScore . ' / ' . $userTotal;
+        echo 'Your score is: ' . $currentScore . ' / ' . $userTotal;
       } else {
-        echo 'currentScore: 0 / 0';
+        echo 'Your score is: 0 / 0';
       }
       ?>
     </div>
+  </div>
+  <div class="col-sm-4"><a href="logout.php" class="btn btn-default btn-sm">Logout</a></div>
+  </div>
   </div>
   </div>
   </body>
